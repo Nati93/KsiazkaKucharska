@@ -2,18 +2,20 @@
 <html>
 
 <head>
-  <meta charset="UTF-8"
-  <meta http-equiv="Content-type" content="text/javascript; charset=utf-8">
-	<script src="js/pgb.js"></script>
-	<script src="cordova.js"></script>
-	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
-	<link rel="stylesheet" href="css/myTheme.min.css" />
-	<link rel="stylesheet" href="css/jquery.mobile.icons.min.css" />
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
-	<script src="js/jquery-2.1.4.min.js"></script>
-	<script src="js/jquery.mobile-1.4.5.min.js"></script>
-	<meta charset="utf-8">
-  </head>
+    <script type="text/javascript" src="cordova.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="css/myTheme.min.css" />
+    <!-- <link rel="stylesheet" href="themes/theme1.css" /> -->
+    <!-- <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" /> -->
+    <link rel="stylesheet" href="css/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js"></script>
+    <meta charset="utf-8">
+</head>
 	
 <body>
 	 <div data-role="page" id="stronaGlowna">
@@ -375,7 +377,185 @@
         </div>
     </div>
 	
-	
+	<div data-role="page" id="kolacja">
+        <div data-role="panel" id="myPanel4" data-display="overlay">
+            <h2>Moje przepisy</h2>
+            <ul data-role="listview">
+                <li><a href="#stronaGlowna" class="ui-btn ui-icon-home ui-btn-icon-right">Strona główna</a></li>
+                <li><a href="#sniadanie" class="ui-btn ui-icon-gear ui-btn-icon-right">Śniadanie</a></li>
+                <li><a href="#obiad" class="ui-btn ui-icon-clock ui-btn-icon-right">Obiad</a></li>
+                <li><a href="#kolacja" class="ui-btn ui-icon-star ui-btn-icon-right">Kolacja</a></li>
+                <li><a href="#deser" class="ui-btn ui-icon-heart ui-btn-icon-right">Deser</a></li>
+                <li><a href="#dodaj_przepis" class="ui-btn ui-icon-plus ui-btn-icon-right">Dodaj przepis</a></li>
+                <li><a href="#informacje" class="ui-btn ui-icon-info ui-btn-icon-right">Informacje</a></li>
+            </ul>
+        </div>
+        <div data-role="header">
+            <h1>Kolacja</h1>
+            <a href="#myPanel4" class="ui-btn ui-icon-bars ui-btn-icon-left ui-btn-icon-notext ui-btn-inline ui-corner-all ui-shadow">Open Panel</a>
+        </div>
+        <div data-role="main" class="ui-content">
+            <button onclick="wczytajKolacja()" class="ui-btn">Wczytaj</button>
+            <button id="supper" onclick="usunKolacja()" class="ui-btn">Usuń</button>
+            <h2 align="center"><font color="#1680BC">Składniki</font></h2>
+            <h3 align="center" id="sklIDkolacja"></h3>
+            <h2 align="center"><font color="#1680BC">Przepis</font></h2>
+            <h3 align="center" id="przIDkolacja"></h3>
+            <button id="nast" onclick="nastepnePyt()">Nastepny przepis</button>
+        </div>
+        <div data-role="footer">
+            <h1>© Justyna Gruca, Natalia Gola</h1>
+        </div>
+    </div>
+    <div data-role="page" id="deser">
+        <div data-role="panel" id="myPanel5" data-display="overlay">
+            <h2>Moje przepisy</h2>
+            <ul data-role="listview">
+                <li><a href="#stronaGlowna" class="ui-btn ui-icon-home ui-btn-icon-right">Strona główna</a></li>
+                <li><a href="#sniadanie" class="ui-btn ui-icon-gear ui-btn-icon-right">Śniadanie</a></li>
+                <li><a href="#obiad" class="ui-btn ui-icon-clock ui-btn-icon-right">Obiad</a></li>
+                <li><a href="#kolacja" class="ui-btn ui-icon-star ui-btn-icon-right">Kolacja</a></li>
+                <li><a href="#deser" class="ui-btn ui-icon-heart ui-btn-icon-right">Deser</a></li>
+                <li><a href="#dodaj_przepis" class="ui-btn ui-icon-plus ui-btn-icon-right">Dodaj przepis</a></li>
+                <li><a href="#informacje" class="ui-btn ui-icon-info ui-btn-icon-right">Informacje</a></li>
+            </ul>
+        </div>
+        <div data-role="header">
+            <h1>Deser</h1>
+            <a href="#myPanel5" class="ui-btn ui-icon-bars ui-btn-icon-left ui-btn-icon-notext ui-btn-inline ui-corner-all ui-shadow">Open Panel</a>
+        </div>
+        <div data-role="main" class="ui-content">
+            <button onclick="wczytajDeser()" class="ui-btn">Wczytaj</button>
+            <button id="dessert" onclick="usunDeser()" class="ui-btn">Usuń</button>
+            <h2 align="center"><font color="#1680BC">Składniki</font></h2>
+            <h3 align="center" id="sklIDdeser"></h3>
+            <h2 align="center"><font color="#1680BC">Przepis</font></h2>
+            <h3 align="center" id="przIDdeser"></h3>
+            <button id="nast" onclick="nastepnePyt()">Nastepny przepis</button>
+        </div>
+        <div data-role="footer">
+            <h1>© Justyna Gruca, Natalia Gola</h1>
+        </div>
+    </div>
+    <div data-role="page" id="dodaj_przepis">
+        <div data-role="panel" id="myPanel6" data-display="overlay">
+            <h2>Moje przepisy</h2>
+            <ul data-role="listview">
+                <li><a href="#stronaGlowna" class="ui-btn ui-icon-home ui-btn-icon-right">Strona główna</a></li>
+                <li><a href="#sniadanie" class="ui-btn ui-icon-gear ui-btn-icon-right">Śniadanie</a></li>
+                <li><a href="#obiad" class="ui-btn ui-icon-clock ui-btn-icon-right">Obiad</a></li>
+                <li><a href="#kolacja" class="ui-btn ui-icon-star ui-btn-icon-right">Kolacja</a></li>
+                <li><a href="#deser" class="ui-btn ui-icon-heart ui-btn-icon-right">Deser</a></li>
+                <li><a href="#dodaj_przepis" class="ui-btn ui-icon-plus ui-btn-icon-right">Dodaj przepis</a></li>
+                <li><a href="#informacje" class="ui-btn ui-icon-info ui-btn-icon-right">Informacje</a></li>
+            </ul>
+        </div>
+        <div data-role="header">
+            <h1>Dodaj przepis</h1>
+            <a href="#myPanel6" class="ui-btn ui-icon-bars ui-btn-icon-left ui-btn-icon-notext ui-btn-inline ui-corner-all ui-shadow">Open Panel</a>
+        </div>
+        <div data-role="main" class="ui-content">
+            <form method="post" action="#">
+                <fieldset class="ui-field-contain">
+                    <label for="rodzaj">Rodzaj posiłku</label>
+                    <select name="rodzaj" id="rodzaj">
+                        <option value="śniadanie">Śniadanie</option>
+                        <option value="obiad">Obiad</option>
+                        <option value="kolacja">Kolacja</option>
+                        <option value="deser">Deser</option>
+                    </select>
+                </fieldset>
+                <label for="nazwa">Nazwa posiłku:</label>
+                <input type="text" name="nazwa" id="nazwa" />
+                <label for="skladniki">Składniki:</label>
+                <textarea name="skladniki" id="skladniki"></textarea>
+                <label for="opis">Opis wykonania:</label>
+                <textarea name="opis" id="opis"></textarea>
+                <label for="plik">Załącz zdjęcie</label>
+                <input type="file" name="plik" id="plik" accept="image/*" />
+                <span id="span"><img id="camera" src="" /></span>
+                <a href="#" onclick="zdjecie()" class="ui-btn ui-icon-camera ui-btn-icon-left ui-corner-all ui-shadow">Zrób zdjęcie</a>
+                <a href="#" onclick="zapisz()" class="ui-btn">Zapisz</a>
+            </form>
+        </div>
+        <div data-role="footer">
+            <h1>© Justyna Gruca, Natalia Gola</h1>
+        </div>
+    </div>
+    <div data-role="page" id="informacje">
+        <div data-role="panel" id="myPanel7" data-display="overlay">
+            <h2>Moje przepisy</h2>
+            <ul data-role="listview">
+                <li><a href="#stronaGlowna" class="ui-btn ui-icon-home ui-btn-icon-right">Strona główna</a></li>
+                <li><a href="#sniadanie" class="ui-btn ui-icon-gear ui-btn-icon-right">Śniadanie</a></li>
+                <li><a href="#obiad" class="ui-btn ui-icon-clock ui-btn-icon-right">Obiad</a></li>
+                <li><a href="#kolacja" class="ui-btn ui-icon-star ui-btn-icon-right">Kolacja</a></li>
+                <li><a href="#deser" class="ui-btn ui-icon-heart ui-btn-icon-right">Deser</a></li>
+                <li><a href="#dodaj_przepis" class="ui-btn ui-icon-plus ui-btn-icon-right">Dodaj przepis</a></li>
+                <li><a href="#informacje" class="ui-btn ui-icon-info ui-btn-icon-right">Informacje</a></li>
+            </ul>
+        </div>
+        <div data-role="header">
+            <h1>Informacje</h1>
+            <a href="#myPanel7" class="ui-btn ui-icon-bars ui-btn-icon-left ui-btn-icon-notext ui-btn-inline ui-corner-all ui-shadow">Open Panel</a>
+        </div>
+        <div data-role="main" class="ui-content">
+            <h2> Informacje o aplikacji </h2>
+            <h4> Wersja programu : 1.0.0 </h4>
+            <div data-role="main" class="ui-content">
+                <div data-role="collapsible">
+                    <h3>Opis</h3>
+                    <p> Aplikacja umożliwia dodawanie własnych przepisów kulinarnych wraz ze zdjęciami </p>
+                </div>
+                <div data-role="main" class="ui-content">
+                    <div data-role="collapsible">
+                        <h3>Strona główna</h3>
+                        <p>Przycisk <b>Nawiguj do restauracji</b> pozwala na wyznaczenie drogi z obecnej lokalizacji do uczelni.</p>
+                        <p>Przycisk <b>Dodaj zdjęcie</b> pozwala wykonać zdjęcie.</p>
+                        <p>Przycisk <b>Sprawdź stan sieci</b> odczytuje informacje o sieci do której podłączony jest telefon.</p>
+                    </div>
+                </div>
+                <div data-role="main" class="ui-content">
+                    <div data-role="collapsible">
+                        <h3>Śniadanie</h3>
+                        <p>Pozwala na znalezienie przepisu.</p>
+                    </div>
+                </div>
+                <div data-role="main" class="ui-content">
+                    <div data-role="collapsible">
+                        <h3>Obiad</h3>
+                        <p>Pozwala na znalezienie przepisu.</p>
+                    </div>
+                </div>
+                <div data-role="main" class="ui-content">
+                    <div data-role="collapsible">
+                        <h3>Kolacja</h3>
+                        <p>Pozwala na znalezienie przepisu.</p>
+                    </div>
+                </div>
+                <div data-role="main" class="ui-content">
+                    <div data-role="collapsible">
+                        <h3>Deser</h3>
+                        <p>Pozwala na znalezienie przepisu.</p>
+                    </div>
+                </div>
+                <div data-role="main" class="ui-content">
+                    <div data-role="collapsible">
+                        <h3>Dodaj przepis</h3>
+                        <p>Pozwala na dodanie przepisu.</p>
+                    </div>
+                </div>
+                <div data-role="main" class="ui-content">
+                    <div data-role="collapsible">
+                        <h3>O autorze</h3>
+                        <p>Autorzy aplikacji: <b>Justyna Gruca, Natalia Gola </b></p>
+                        <p>Numer grupy dziekańskiej: <b>KrDUIs2012</b></p>
+                    </div>
+                </div>
+                <div data-role="footer">
+                    <h1>©Justyna Gruca, Natalia Gola</h1>
+                </div>
+            </div>
 	
 
 
