@@ -1,7 +1,58 @@
 <!DOCTYPE html>
 <html>
-  <head>
-   
+
+<head>
+  <meta charset="UTF-8"
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<script src="js/pgb.js"></script>
+	<script src="cordova.js"></script>
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+	<script src="js/jquery-2.1.4.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+    
+    <script>
+      function nav(){
+launchnavigator.isAppAvailable(launchnavigator.APP.GOOGLE_MAPS, function(isAvailable){
+    var app;
+    if(isAvailable){
+        app = launchnavigator.APP.GOOGLE_MAPS;
+    }else{
+        alert("Google Maps not available - falling back to user selection");
+        app = launchnavigator.APP.USER_SELECT;
+    }
+    launchnavigator.navigate("ul.Rynek Główny 1, Kraków, Polska", {
+        app: app
+    });
+})
+}; 
+    </script> 
+    
+    
   </head>
+
+<div data-role="page" id="sniadanie">
+		  <div data-role="panel" id="myPanel2" data-display="overlay"> 
+		    <h2>Moje przepisy</h2>
+		    <ul data-role="listview">
+			      <li><a href="#stronaGlowna" class="ui-btn ui-icon-home ui-btn-icon-right">Strona główna</a></li>
+			      <li><a href="#sniadanie" class="ui-btn ui-icon-check ui-btn-icon-right">Śniadanie</a></li>
+			      <li><a href="#obiad" class="ui-btn ui-icon-edit ui-btn-icon-right">Obiad</a></li>
+			      <li><a href="#kolacja" class="ui-btn ui-icon-search ui-btn-icon-right">Kolacja</a></li>
+			      <li><a href="#deser" class="ui-btn ui-icon-info ui-btn-icon-right">Deser</a></li>
+				  <li><a href="#deser" class="ui-btn ui-icon-plus ui-btn-icon-right">Dodaj przepis</a></li>
+				  <li><a href="#informacje" class="ui-btn ui-icon-info ui-btn-icon-right">Informacje</a></li>
+    		</ul>	  	   
+  </div>
+  </div> 
+
+
+
+
+
+
+
+
+
 </html>
+
 
