@@ -26,7 +26,23 @@ launchnavigator.isAppAvailable(launchnavigator.APP.GOOGLE_MAPS, function(isAvail
 })
 }; 
     </script> 
-    
+    <script>
+	    function checkConnection() {
+    var networkState = navigator.connection.type;
+
+    var states = {};
+    states[Connection.UNKNOWN]  = 'Nieznany';
+    states[Connection.ETHERNET] = 'Ethernet';
+    states[Connection.WIFI]     = 'WiFi';
+    states[Connection.CELL_2G]  = 'Sieć 2G';
+    states[Connection.CELL_3G]  = 'Sieć 3G';
+    states[Connection.CELL_4G]  = 'Sieć 4G';
+    states[Connection.CELL]     = 'Sieć';
+    states[Connection.NONE]     = 'Brak';
+
+    alert('Typ połączenia ' + states[networkState]);
+};
+	</script>
     
   </head>
 
