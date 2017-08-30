@@ -1,1 +1,9 @@
-
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="ksiazkakucharska" versionCode="1" version="1.0.0">
+  <name>Ksiazka Kucharska</name>
+        <description>Aplikacja mająca na celu pomoc w gotowaniu</description>
+        <author>Justyna Gruca, Natalia Gola</author>
+      <platform name="android">
+       
+      </platform>
+</widget>
