@@ -9,23 +9,49 @@
 	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
 	<script src="js/jquery-2.1.4.min.js"></script>
 	<script src="js/jquery.mobile-1.4.5.min.js"></script>
-    
-    <script>
-      function nav(){
-launchnavigator.isAppAvailable(launchnavigator.APP.GOOGLE_MAPS, function(isAvailable){
-    var app;
-    if(isAvailable){
-        app = launchnavigator.APP.GOOGLE_MAPS;
-    }else{
-        alert("Google Maps not available - falling back to user selection");
-        app = launchnavigator.APP.USER_SELECT;
-    }
-    launchnavigator.navigate("ul.Rynek Główny 1, Kraków, Polska", {
-        app: app
-    });
-})
-}; 
-    </script> 
+	
+<body>
+	 <div data-role="page" id="stronaGlowna">
+        <div data-role="panel" id="myPanel1" data-display="overlay">
+            <h2>Moje przepisy</h2>
+            <ul data-role="listview">
+                <li><a href="#stronaGlowna" class="ui-btn ui-icon-home ui-btn-icon-right">Strona główna</a></li>
+                <li><a href="#sniadanie" class="ui-btn ui-icon-gear ui-btn-icon-right">Śniadanie</a></li>
+                <li><a href="#obiad" class="ui-btn ui-icon-clock ui-btn-icon-right">Obiad</a></li>
+                <li><a href="#kolacja" class="ui-btn ui-icon-star ui-btn-icon-right">Kolacja</a></li>
+                <li><a href="#deser" class="ui-btn ui-icon-heart ui-btn-icon-right">Deser</a></li>
+                <li><a href="#dodaj_przepis" class="ui-btn ui-icon-plus ui-btn-icon-right">Dodaj przepis</a></li>
+                <li><a href="#informacje" class="ui-btn ui-icon-info ui-btn-icon-right">Informacje</a></li>
+            </ul>
+        </div>
+        <div data-role="header">
+            <h1>Strona główna</h1>
+            <a href="#myPanel1" class="ui-btn ui-icon-bars ui-btn-icon-left ui-btn-icon-notext ui-btn-inline ui-corner-all ui-shadow">Open Panel</a>
+        </div>
+        <div data-role="main" class="ui-content">
+		<button id="nawiguj" onclick="nav()">Nawiguj do restauracji</button>
+	<script>
+       function scan() {
+                navigator.camera.getPicture(onSuccess, onFail, {
+                    quality: 50,
+                    destinationType: Camera.DestinationType.FILE_URI,
+                    saveToPhotoAlbum: true
+                });
+                function onSuccess(imageData) {
+                    image = imageData;
+                    span = document.getElementById("span");
+                    span.innerHTML = ['<img src="', image,
+                        '" title="', image, '" style="width: 50%; height: 50%"/>'
+                    ].join('');
+                }
+                function onFail(message) {
+                    alert('Failed because: ' + message);
+                }
+            }
+          </script> 
+	<button id="stan_sieci" onclick="checkConnection()">Sprawdź stan sieci</button>
+	<p></p>
+	<button id="wszystkie_przepisy" onclick="usunWszystkie()">Usuń wszystkie przepisy</button>
     <script>
 	    function checkConnection() {
     var networkState = navigator.connection.type;
@@ -55,7 +81,7 @@ launchnavigator.isAppAvailable(launchnavigator.APP.GOOGLE_MAPS, function(isAvail
 			      <li><a href="#obiad" class="ui-btn ui-icon-edit ui-btn-icon-right">Obiad</a></li>
 			      <li><a href="#kolacja" class="ui-btn ui-icon-search ui-btn-icon-right">Kolacja</a></li>
 			      <li><a href="#deser" class="ui-btn ui-icon-info ui-btn-icon-right">Deser</a></li>
-				  <li><a href="#deser" class="ui-btn ui-icon-plus ui-btn-icon-right">Dodaj przepis</a></li>
+				  <li><a href="#dodaj_przepis" class="ui-btn ui-icon-plus ui-btn-icon-right">Dodaj przepis</a></li>
 				  <li><a href="#informacje" class="ui-btn ui-icon-info ui-btn-icon-right">Informacje</a></li>
     		</ul>	  	   
   </div>
@@ -66,7 +92,7 @@ launchnavigator.isAppAvailable(launchnavigator.APP.GOOGLE_MAPS, function(isAvail
 
 
 
-
+		 </body>
 
 
 </html>
